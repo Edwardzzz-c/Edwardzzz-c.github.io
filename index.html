@@ -214,7 +214,8 @@
             margin-bottom: 8px;
         }
 
-        .pub-links a {
+        .pub-links a,
+        .entry-links a {
             margin-right: 10px;
             font-size: 0.9rem;
             border: 1px solid #ddd;
@@ -223,7 +224,8 @@
             background: #fdfdfd;
         }
         
-        .pub-links a:hover {
+        .pub-links a:hover,
+        .entry-links a:hover {
             background: #f0f0f0;
             text-decoration: none;
         }
@@ -287,6 +289,10 @@
             font-size: 0.95rem;
             color: #555;
             margin-top: 4px;
+        }
+
+        .entry-links {
+            margin-top: 8px;
         }
 
 
@@ -453,7 +459,10 @@
                 <div class="entry-body">
                     <span class="entry-title">LFEMG: Learning Force-Aware Robot Manipulation with EMG-Labelled Human Data</span>
                     <span class="entry-sub">COMS 6998 Deep Learning for Robot Manipulation &ndash; Course Project</span>
-                    <span class="entry-desc">Developed a pipeline for collecting force-aware robot demonstrations from human data. We trained a model to infer fingertip force from forearm EMG, achieving a test R&sup2; of 0.84 on held-out trajectories. We aligned the predicted force labels with RGB-D hand trajectories and replayed the resulting demonstrations on a real xArm. Team project with Sandy Li. <a href="files/Learning_Force_Aware_Robot_Manipulation_with_EMG_Labelled_Human_Data.pdf" target="_blank" rel="noopener noreferrer">Report</a></span>
+                    <span class="entry-desc">Developed a pipeline for collecting force-aware robot demonstrations from human data. We trained a model to infer fingertip force from forearm EMG, achieving a test R&sup2; of 0.84 on held-out trajectories. We aligned the predicted force labels with RGB-D hand trajectories and replayed the resulting demonstrations on a real xArm. Team project with Sandy Li.</span>
+                    <div class="entry-links">
+                        <a href="files/Learning_Force_Aware_Robot_Manipulation_with_EMG_Labelled_Human_Data.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+                    </div>
                 </div>
             </li>
             <li class="entry-item">
@@ -463,7 +472,10 @@
                 <div class="entry-body">
                     <span class="entry-title">Integrating Conditional Flow Matching with RL</span>
                     <span class="entry-sub">COMS 4733 Computational Aspects of Robotics &ndash; Course Project</span>
-                    <span class="entry-desc">Proposed Flow Soft Actor-Critic (FSAC), a Dual-MDP approach to off-policy flow-based RL, and explored online FPO fine-tuning of flow-based behavioral cloning policies on continuous-control and manipulation tasks. Team project with Hua Hsuan Liang and Jaisel Singh. <a href="files/When%20flow%20meet%20RL.pdf" target="_blank" rel="noopener noreferrer">Report</a></span>
+                    <span class="entry-desc">Proposed Flow Soft Actor-Critic (FSAC), a Dual-MDP approach to off-policy flow-based RL, and explored online FPO fine-tuning of flow-based behavioral cloning policies on continuous-control and manipulation tasks. Team project with Hua Hsuan Liang and Jaisel Singh.</span>
+                    <div class="entry-links">
+                        <a href="files/When%20flow%20meet%20RL.pdf" target="_blank" rel="noopener noreferrer">Report</a>
+                    </div>
                 </div>
             </li>
             <li class="entry-item">
