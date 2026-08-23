@@ -146,21 +146,21 @@
         }
 
         ul.news-list li {
+            display: flex;
+            gap: 10px;
             margin-bottom: 12px;
         }
 
-        /* --- Projects List --- */
-        #projects ul li {
-            margin-bottom: 18px;
-        }
-        #projects ul li:last-child {
-            margin-bottom: 0;
-        }
-
         .date-tag {
+            flex: 0 0 auto;
             font-weight: bold;
             color: #444;
-            margin-right: 5px;
+            min-width: 5.5rem;
+        }
+
+        .news-text {
+            flex: 1;
+            min-width: 0;
         }
 
         /* --- Publications List --- */
@@ -210,7 +210,6 @@
         }
 
         .pub-venue {
-            font-style: italic;
             color: rgb(168, 5, 5);
             margin-bottom: 8px;
         }
@@ -228,6 +227,68 @@
             background: #f0f0f0;
             text-decoration: none;
         }
+
+        /* --- Entry List (shared by Projects & Teaching) --- */
+        ul.entry-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .entry-item {
+            display: flex;
+            gap: 20px;
+            padding: 12px 0;
+        }
+
+        #Teaching .entry-item {
+            padding-left: 16px;
+            border-left: 3px solid #eaeaea;
+        }
+
+        .entry-media {
+            flex: 0 0 240px;
+        }
+
+        .entry-media img {
+            width: 100%;
+            display: block;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+
+        .entry-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .entry-title {
+            font-weight: 600;
+            color: #222;
+        }
+
+        .entry-meta {
+            color: #777;
+            font-size: 0.9rem;
+            margin-left: 10px;
+            font-weight: normal;
+            white-space: nowrap;
+        }
+
+        .entry-sub {
+            display: block;
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .entry-desc {
+            display: block;
+            font-size: 0.95rem;
+            color: #555;
+            margin-top: 4px;
+        }
+
 
         /* --- Footer --- */
         footer {
@@ -257,6 +318,12 @@
             .pub-image img {
                 max-width: 280px;
             }
+            .entry-item {
+                flex-direction: column;
+            }
+            .entry-media {
+                max-width: 280px;
+            }
         }
     </style>
 </head>
@@ -277,23 +344,23 @@
 
     <div class="profile-section">
         <div class="profile-photo">
-            <img src="profile.JPG" alt="Edward Zhang">
+            <img src="media/profile.JPG" alt="Edward Zhang">
         </div>
         <div class="profile-info">
             <div class="profile-name">Cheng (Edward) Zhang</div>
             <p>
                 I am a computer science undergraduate at Columbia University. At Columbia, I am very fortunate to work with
                 Dr. <a href="https://zhanpenghe.github.io/">Zhanpeng He</a> and Prof. <a href="http://me.columbia.edu/faculty/matei-ciocarlie">Matei Ciocarlie</a>
-                at the Robotic Manipulation and Mobility <a href="https://roam.me.columbia.edu/">(ROAM)</a> Lab. 
+                at the Robotic Manipulation and Mobility <a href="https://roam.me.columbia.edu/">(ROAM)</a> Lab.
             </p>
             <p>
-                My research interests lie in robotics, machine learning, and computer vision. I currently focus on building 
-                algorithms and hardware for reliable robotic manipulation. 
+                My research interests lie in robotics and deep learning. I currently focus on building
+                algorithms and hardware for reliable robotic manipulation.
             </p>
             
             <div class="profile-links">
                 <a href="#">Google Scholar</a> /
-                <a href="https://github.com/Edwardzzz-c">GitHub</a> /
+                <a href="#">CV</a> /
                 <a href="mailto:cz2874@columbia.edu">Email</a>
             </div>
         </div>
@@ -302,9 +369,10 @@
     <section id="Updates">
         <h2>Updates</h2>
         <ul class="news-list">
-            <li><span class="date-tag">[Jun 2026]</span> I joined <a href="https://x2robot.com/en">Xsquare Robotics</a> as a VLA post-training intern on the dexterous hand team!</li>
-            <li><span class="date-tag">[Sep 2025]</span> Our paper <a href="https://arxiv.org/abs/2510.01603">MiniBEE</a>, a compact bimanual manipulator is available on arXiv!</li>
-            <li><span class="date-tag">[Nov 2024]</span> I joined ROAM Lab as a Research Assistant!</li>
+            <li><span class="date-tag">[Aug 2026]</span><span class="news-text">Our <a href="http://xhslink.com/o/A5hoUyxRRdm">dexterous hand demo</a>, powered by in-house world action model Wall-B, was presented at the World Robotic Conference (WRC) in Beijing. Come see us in person!</span></li>
+            <li><span class="date-tag">[Jun 2026]</span><span class="news-text">I joined <a href="https://x2robot.com/en">Xsquare Robotics</a> as a VLA post-training intern on the dexterous hand team!</span></li>
+            <li><span class="date-tag">[Sep 2025]</span><span class="news-text">Our paper <a href="https://arxiv.org/abs/2510.01603">MiniBEE</a>, a compact bimanual manipulator, is available on arXiv!</span></li>
+            <li><span class="date-tag">[Nov 2024]</span><span class="news-text">I joined ROAM Lab as a Research Assistant!</span></li>
         </ul>
     </section>
 
@@ -316,7 +384,26 @@
 
         <div class="publication-item">
             <div class="pub-image">
-                <img src="minibee_teaser.gif" alt="MiniBEE Teaser">
+                <img src="media/ditto_teaser.gif" alt="DITTO Teaser">
+            </div>
+            <div class="pub-details">
+                <div class="pub-title">DITTO: Dexterous Interface for Transparent TeleOperation</div>
+                <div class="pub-authors">
+                    Joaquin Palacios*, Katelyn Lee*, <span class="author-me">Cheng Zhang</span>, Zhanpeng He, Matei Ciocarlie
+                </div>
+                <div class="pub-venue">
+                    Under Review
+                </div>
+                <div class="pub-links">
+                    <a href="https://roamlab.github.io/ditto/">Website</a>
+                    <a href="#">Paper</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="publication-item">
+            <div class="pub-image">
+                <img src="media/minibee_teaser.gif" alt="MiniBEE Teaser">
             </div>
             <div class="pub-details">
                 <div class="pub-title">MiniBEE: A New Form Factor for Compact Bimanual Dexterity</div>
@@ -358,26 +445,75 @@
 
     <section id="projects">
         <h2>Projects</h2>
-        <ul>
-            <li><strong>Integrating Conditional Flow Matching with RL</strong> Benchmarked PPO/SAC vs flow-based RL (<a href="https://flowreinforce.github.io/">Flow Policy Gradient</a>, our Flow Soft Actor-Critic (FSAC)) on Gymnasium continuous-control tasks; explored D4RL fine-tuning of a flow-based BC policy with Flow Policy Optimization (FPO). 
-                Team project with Hua Hsuan Liang and Jaisel Singh. (COMS 4733 Computational Aspects of Robotics) <a href="#">Code</a> / <a href="#">Report</a></li>
-            <li><strong>3D Gaussian Ray Tracing</strong> CPU implementation of NVIDIA’s <a href="https://gaussiantracer.github.io/">3DGRT</a>; captured iPhone RGB-D dataset, trained 3D Gaussian Splatting scenes with Nerfstudio, and ray-traced novel views from the learned Gaussians (COMS 4160 Computer Graphics). 
-                <a href="#">Code</a> / <a href="#">Results</a></li>
-            <li><strong>Efficient Kinematics Optimizer in MuJoCo</strong> Built a MuJoCo-based visualizer to estimate the reachable <em>relative</em> workspace of parameterized hand designs. Given a set of design parameters (with bounds/constraints), the system scores each candidate by workspace size and automatically optimizes the design using the Cross-Entropy Method (CEM) to maximize workspace.
-                <a href="#">Code</a> / <a href="#">Demo</a></li>
+        <ul class="entry-list">
+            <li class="entry-item">
+                <div class="entry-media">
+                    <img src="media/EMG2F_teaser.gif" alt="LFEMG Teaser">
+                </div>
+                <div class="entry-body">
+                    <span class="entry-title">LFEMG: Learning Force-Aware Robot Manipulation with EMG-Labelled Human Data</span>
+                    <span class="entry-sub">COMS 6998 Deep Learning for Robot Manipulation &ndash; Course Project</span>
+                    <span class="entry-desc">Developed a pipeline for collecting force-aware robot demonstrations from human data. We trained a model to infer fingertip force from forearm EMG, achieving a test R&sup2; of 0.84 on held-out trajectories. We aligned the predicted force labels with RGB-D hand trajectories and replayed the resulting demonstrations on a real xArm. Team project with Sandy Li. <a href="files/Learning_Force_Aware_Robot_Manipulation_with_EMG_Labelled_Human_Data.pdf">Report</a></span>
+                </div>
+            </li>
+            <li class="entry-item">
+                <div class="entry-media">
+                    <img src="media/flow_rl_teaser.gif" alt="Flow Matching RL Teaser">
+                </div>
+                <div class="entry-body">
+                    <span class="entry-title">Integrating Conditional Flow Matching with RL</span>
+                    <span class="entry-sub">COMS 4733 Computational Aspects of Robotics &ndash; Course Project</span>
+                    <span class="entry-desc">Proposed Flow Soft Actor-Critic (FSAC), a Dual-MDP approach to off-policy flow-based RL, and explored online FPO fine-tuning of flow-based behavioral cloning policies on continuous-control and manipulation tasks. Team project with Hua Hsuan Liang and Jaisel Singh. <a href="files/When%20flow%20meet%20RL.pdf">Report</a></span>
+                </div>
+            </li>
+            <li class="entry-item">
+                <div class="entry-media">
+                    <img src="media/3dgrt_teaser.gif" alt="3D Gaussian Ray Tracing Teaser">
+                </div>
+                <div class="entry-body">
+                    <span class="entry-title">3D Gaussian Ray Tracing</span>
+                    <span class="entry-sub">COMS 4160 Computer Graphics &ndash; Course Project</span>
+                    <span class="entry-desc">CPU implementation of NVIDIA’s <a href="https://gaussiantracer.github.io/">3DGRT</a>; captured iPhone RGB-D dataset, trained 3D Gaussian Splatting scenes with Nerfstudio, and ray-traced novel views from the learned Gaussians.</span>
+                </div>
+            </li>
+            <li class="entry-item">
+                <div class="entry-media">
+                    <img src="media/sharpa_teaser.gif" alt="Kinematics Optimizer Teaser">
+                </div>
+                <div class="entry-body">
+                    <span class="entry-title">Efficient Kinematics Optimizer in MuJoCo</span>
+                    <span class="entry-desc">Built a MuJoCo-based visualizer to estimate the reachable relative workspace of parameterized hand designs. Given a set of design parameters, the system scores each candidate by workspace size and automatically optimizes the design using the Cross-Entropy Method to maximize workspace.</span>
+                </div>
+            </li>
         </ul>
     </section>
 
     <section id="Teaching">
         <h2>Teaching</h2>
-        <ul>
-            <li><strong>Teaching Assistant:</strong> Machine Learning (Spring 2026)</li>
-            <li><strong>Teaching Assistant:</strong> Discrete Mathematics (Fall 2025)</li>
+        <ul class="entry-list">
+            <li class="entry-item">
+                <div class="entry-body">
+                    <span class="entry-title">COMS 4733 Computational Aspects of Robotics</span><span class="entry-meta">Fall 2026</span>
+                    <span class="entry-desc">Teaching Assistant</span>
+                </div>
+            </li>
+            <li class="entry-item">
+                <div class="entry-body">
+                    <span class="entry-title">COMS 4771 Machine Learning</span><span class="entry-meta">Spring 2026</span>
+                    <span class="entry-desc">Teaching Assistant</span>
+                </div>
+            </li>
+            <li class="entry-item">
+                <div class="entry-body">
+                    <span class="entry-title">COMS 3203 Discrete Mathematics</span><span class="entry-meta">Fall 2025</span>
+                    <span class="entry-desc">Teaching Assistant</span>
+                </div>
+            </li>
         </ul>
     </section>
 
     <footer>
-        <p>Last updated on December 18, 2025.</p>
+        <p>Last updated on August 23, 2026.</p>
     </footer>
 
 </div>
